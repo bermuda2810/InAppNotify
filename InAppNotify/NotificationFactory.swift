@@ -97,8 +97,8 @@ open class NotificationFactory: UIView,UITextViewDelegate {
         let button       = UIButton()
         button.isEnabled = false
         
-        button.setTitle(InAppNotify.sendString, for: UIControlState())
-        button.setTitleColor(InAppNotify.theme.sendButtonNormalColor, for: UIControlState())
+        button.setTitle(InAppNotify.sendString, for: UIControl.State())
+        button.setTitleColor(InAppNotify.theme.sendButtonNormalColor, for: UIControl.State())
         button.setTitleColor(InAppNotify.theme.sendButtonHighlightedColor, for: .highlighted)
         return button
     }()
@@ -199,7 +199,7 @@ open class NotificationFactory: UIView,UITextViewDelegate {
         buttonSend.addTarget(self, action:#selector(self.interactionSend), for: .touchUpInside)
         
         //Register for rotation change
-        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+//        NotificationCenter.default.addObserver(self, selector: #selector(self.orientationDidChange), name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     public required init?(coder aDecoder: NSCoder) {
@@ -208,7 +208,7 @@ open class NotificationFactory: UIView,UITextViewDelegate {
     
     deinit {
         //Deregister for rotation change
-        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
+//        NotificationCenter.default.removeObserver(self, name: NSNotification.Name.UIDeviceOrientationDidChange, object: nil)
     }
     
     
